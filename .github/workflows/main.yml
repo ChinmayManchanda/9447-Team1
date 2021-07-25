@@ -39,7 +39,7 @@ jobs:
           # severities of vulnerabilities (separated by commma)
           severity: LOW, MEDIUM, HIGH # optional, default is HIGH,CRITICAL
           # target vlunerability [os,library] (separated by commma)
-          vuln_type: os,library # optional, default is os,library
+          vuln_type: library # optional, default is os,library
           # Ignore unfixed vulnerabilities [true, false]
           ignore_unfixed: false # optional, default is false
           # Trivy --template option
