@@ -1,0 +1,27 @@
+- name: Trivy Action
+  # You may pin to the exact commit or the version.
+  # uses: lazy-actions/gitrivy@6edf95fdc8b1fb841a974536316b209cd16f9000
+  uses: lazy-actions/gitrivy@v3
+  with:
+    # Trivy version
+    trivy_version: # optional, default is latest
+    # The target image name of vulnerability scan (specify this parameter or "IMAGE_NAME" environment variable
+    image: # optional
+    # severities of vulnerabilities (separated by commma)
+    severity: # optional, default is HIGH,CRITICAL
+    # target vlunerability [os,library] (separated by commma)
+    vuln_type: # optional, default is os,library
+    # Ignore unfixed vulnerabilities [true, false]
+    ignore_unfixed: # optional, default is false
+    # Trivy --template option
+    template: # optional
+    # GitHub access token used to create a issue
+    token: 
+    # Issue title
+    issue_title: # optional, default is Security Alert
+    # Issue label (separated by commma)
+    issue_label: # optional, default is trivy,vulnerability
+    # Issue assignee (separated by commma)
+    issue_assignee: # optional
+    # Whether the action should fail if a vulnerability was found
+    fail_on_vulnerabilities: # optional, default is false
