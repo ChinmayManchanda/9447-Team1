@@ -6,9 +6,7 @@ name: Vulnerability Scan
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [ Docker-Image-Scanning_Chinmay ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -35,27 +33,27 @@ jobs:
         uses: lazy-actions/gitrivy@v3
         with:
           # Trivy version
-          trivy_version: # optional, default is latest
+          trivy_version: latest # optional, default is latest
           # The target image name of vulnerability scan (specify this parameter or "IMAGE_NAME" environment variable
           image: python-docker # optional
           # severities of vulnerabilities (separated by commma)
-          severity: # optional, default is HIGH,CRITICAL
+          severity: LOW, MEDIUM, HIGH # optional, default is HIGH,CRITICAL
           # target vlunerability [os,library] (separated by commma)
-          vuln_type: # optional, default is os,library
+          vuln_type: os,library # optional, default is os,library
           # Ignore unfixed vulnerabilities [true, false]
-          ignore_unfixed: # optional, default is false
+          ignore_unfixed: false # optional, default is false
           # Trivy --template option
-          template: # optional
+          template: N/A # optional
           # GitHub access token used to create a issue
           token: ${{ secrets.GITHUB_TOKEN }}
           # Issue title
-          issue_title: # optional, default is Security Alert
+          issue_title: Security Alert # optional, default is Security Alert
           # Issue label (separated by commma)
-          issue_label: # optional, default is trivy,vulnerability
+          issue_label: trivy,vulnerability # optional, default is trivy,vulnerability
           # Issue assignee (separated by commma)
-          issue_assignee: # optional
+          issue_assignee: N/A# optional
           # Whether the action should fail if a vulnerability was found
-          fail_on_vulnerabilities: # optional, default is false
+          fail_on_vulnerabilities: false # optional, default is false
       
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
