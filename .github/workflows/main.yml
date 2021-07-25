@@ -43,7 +43,7 @@ jobs:
           # Ignore unfixed vulnerabilities [true, false]
           ignore_unfixed: false # optional, default is false
           # Trivy --template option
-          template: N/A # optional
+          template: # optional
           # GitHub access token used to create a issue
           token: ${{ secrets.GITHUB_TOKEN }}
           # Issue title
@@ -51,7 +51,7 @@ jobs:
           # Issue label (separated by commma)
           issue_label: trivy,vulnerability # optional, default is trivy,vulnerability
           # Issue assignee (separated by commma)
-          issue_assignee: N/A# optional
+          issue_assignee: # optional
           # Whether the action should fail if a vulnerability was found
           fail_on_vulnerabilities: false # optional, default is false
       
