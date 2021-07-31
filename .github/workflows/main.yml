@@ -6,7 +6,7 @@ name: Vulnerability Scan
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ Docker-Image-Scanning_Chinmay ]
+    branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -39,7 +39,7 @@ jobs:
           # severities of vulnerabilities (separated by commma)
           severity: LOW, MEDIUM, HIGH # optional, default is HIGH,CRITICAL
           # target vlunerability [os,library] (separated by commma)
-          vuln_type: library # optional, default is os,library
+          vuln_type: os, library # optional, default is os,library
           # Ignore unfixed vulnerabilities [true, false]
           ignore_unfixed: false # optional, default is false
           # Trivy --template option
