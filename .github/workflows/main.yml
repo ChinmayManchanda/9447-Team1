@@ -21,6 +21,7 @@ jobs:
 
         - name: Build an image from Dockerfile
           run: |
+            cd python-docker
             docker build -t docker.io/chinmaymanchanda/python-docker:${{ github.sha }} .
 
         - name: Run Trivy vulnerability scanner
