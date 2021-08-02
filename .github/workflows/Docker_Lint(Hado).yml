@@ -36,7 +36,7 @@ jobs:
           dockerfile: Dockerfile# optional, default is Dockerfile
           # The output format, one of [tty (default) | json | checkstyle |codeclimate | gitlab_codeclimate ]
 
-          format: tty# optional, default is tty
+          format: # optional, default is tty
           # Fail the pipeline only if rules with severity above this threshold are violated. One of [error | warning | info (default) | style | ignore]
 
           failure-threshold: info # optional, default is info
