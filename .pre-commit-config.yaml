@@ -1,0 +1,5 @@
+repos:
+- repo: https://github.com/AleksaC/hadolint-py
+  rev: v1.19.0
+  hooks:
+  - id: hadolint
