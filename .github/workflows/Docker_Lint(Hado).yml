@@ -33,13 +33,13 @@ jobs:
         uses: hadolint/hadolint-action@v1.5.0
         with:
           # The path to the Dockerfile to lint
-          dockerfile: Dockerfile# optional, default is Dockerfile
+          dockerfile: Dockerfile
           # The output format, one of [tty (default) | json | checkstyle |codeclimate | gitlab_codeclimate ]
 
-          format: # optional, default is tty
+          format: tty
           # Fail the pipeline only if rules with severity above this threshold are violated. One of [error | warning | info (default) | style | ignore]
 
-          failure-threshold: info # optional, default is info
+          failure-threshold: info
           # A space separated string of rules to ignore
           ignore: # optional
           # Path to a config file
