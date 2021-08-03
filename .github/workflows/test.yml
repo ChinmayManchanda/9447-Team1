@@ -1,0 +1,25 @@
+on:
+  push:
+    branches:
+      - main
+
+name: Write to Slack
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          
+      - name: Send custom JSON data to Slack workflow
+        id: slack
+        uses: slackapi/slack-github-action@v1.14.0
+        with:
+          payload: "{url1: https://github.com/marketplace/actions/slack-send, url2: https://github.com/marketplace/actions/slack-send}" # This data can be any valid JSON from a previous step in the GitHub Action
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} 
