@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> { system = "x86_64-linux"; } }:
+{ pkgs ? import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/2a6732c38dfa8c1a3c8288f2b47a28cbea57a304.tar.gz" { system = "x86_64-linux"; } }:
 
 let
     pythonPackages = pkgs.python39.withPackages (ps: [
@@ -20,11 +20,17 @@ in pkgs.dockerTools.buildImage {
         pkgs.git
         pkgs.vim
     ];
-#     runAsRoot = ''
-#         sudo apt-get update
-#     '';
+    runAsRoot = ''
+        sudo apt-get update
+    '';
     config = {
         Cmd = [ "${pkgs.bash}/bin/bash" ];
     };
 }
 
+# This encapsulates dependencies
+# Look to use for compiled languages or run python app
+# Get docker to build rather than run bash
+# Integrate into CI
+# Auto-populate from requirements.txt? - Generate this nix file and store in s3?
+# Hermetic, portable venv w/ dependencies
