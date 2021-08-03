@@ -1,0 +1,22 @@
+{
+    "repos": [
+        {
+            "repo": "https://github.com/Lucas-C/pre-commit-hooks-safety",
+            "rev": "v1.2.1",
+            "hooks": [
+                {
+                    "id": "python-safety-dependencies-check"
+                }
+            ]
+        },
+        {
+            "repo": "https://github.com/nix-community/nixpkgs-fmt",
+            "rev": "master",
+            "hooks": [
+                {
+                    "id": "nixpkgs-fmt"
+                }
+            ]
+        }
+    ]
+}

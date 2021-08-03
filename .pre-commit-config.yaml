@@ -1,13 +1,11 @@
 repos:
--   repo: https://github.com/Lucas-C/pre-commit-hooks-nodejs
-    rev: v1.1.1
+-   repo: https://github.com/Lucas-C/pre-commit-hooks-safety
+    rev: v1.2.1
     hooks:
-    -   id: dockerfile_lint
-        # optional custom config:
-        args: [--dockerfile]
-    
--   repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.50.0
+    -   id: python-safety-dependencies-check
+
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.0.1  # Use the ref you want to point at
     hooks:
-    -   id: terraform_tfsec
-        files: ^prd-infra/
+    -   id: detect-aws-credentials
+        args: [--allow-missing-credentials]
