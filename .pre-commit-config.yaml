@@ -8,4 +8,3 @@ repos:
     rev: v4.0.1  # Use the ref you want to point at
     hooks:
     -   id: detect-aws-credentials
-        args: [--allow-missing-credentials]
