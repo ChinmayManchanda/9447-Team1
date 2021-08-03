@@ -1,7 +1,7 @@
-{ pkgs ? import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/2a6732c38dfa8c1a3c8288f2b47a28cbea57a304.tar.gz" { system = "x86_64-linux"; } }:
+{ pkgs ? import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/2a6732c38dfa8c1a3c8288f2b47a28cbea57a304.tar.gz") { system = "x86_64-linux"; } }:
 
 let
-    pythonPackages = pkgs.python39.withPackages (ps: [
+    pythonPackages = pkgs.python2.withPackages (ps: [
         ps.flask
         ps.requests
     ]);
@@ -19,13 +19,20 @@ in pkgs.dockerTools.buildImage {
         pythonPackages
         pkgs.git
         pkgs.vim
+        ./test-app/AddSEC-demo
     ];
-    runAsRoot = ''
-        sudo apt-get update
-    '';
+#     runAsRoot = ''
+#         sudo apt-get update
+#     '';
     config = {
-        Cmd = [ "${pkgs.bash}/bin/bash" ];
+        #Cmd = [ "${pkgs.python39}/bin/python" "/test-app/app.py" ];
+        #Cmd = [ "${pkgs.bash}/bin/bash" ];
+        Cmd = [ "/run.sh" "-h" "0.0.0.0" ];
+        ExposedPorts = {
+            "5000/tcp" = { };
+        };
     };
+
 }
 
 # This encapsulates dependencies
