@@ -34,3 +34,5 @@ We didn't use CFN so getting the handle-slack-command lambda function to work fo
 
 1. You will need to make a new API that can trigger the lambda function
 2. You will have to add the TOKEN from CodeBuild Bot to your AWS secrets manager (So the API security works)
+
+There is an additional feature we can't add to the repo that used AWS Macie, AWS Code Pipeline and AWS SNS Topics to send messages to Slack when a Pipeline failed.
