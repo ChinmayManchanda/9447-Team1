@@ -2,6 +2,9 @@
 
 COMP9447 Team 1 Repo
 
+# Use Case 1: AddSec
+AddSec's configuration details could be found here: https://github.com/TirthParikh27/AddSec 
+
 # Use Case 2: SlackBot
 
 1. Slack App (CodeBuild-Bot) is added to the slack channel.
@@ -9,6 +12,10 @@ COMP9447 Team 1 Repo
 3. "channel-id" field need to be changed to the slack channel id from slack.
 4. Custom message can be inserted in the "slack-message" section. 
 5. SLACK_BOT_TOKEN needs to be added to git secrets.
+
+# Use Case 3: PR Environment
+
+PR Environment's configuration details could be found here: https://github.com/TirthParikh27/Python_PR
 
 # Use Case 4: NIX Reproducible Builds
 
