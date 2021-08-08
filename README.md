@@ -32,5 +32,5 @@ $ pre-commit run --all-files
 
 We didn't use CFN so getting the handle-slack-command lambda function to work for you will not be entirely simple. This lambda function was from a use case that focused on AWS CodeCommit / CodeBuild and was discarded due to taking lots of time to work on, but offering lackluster security improvements.
 
-    You will need to make a new API that can trigger the lambda function
-    You will have to add the TOKEN from CodeBuild Bot to your AWS secrets manager (So the API security works)
+1. You will need to make a new API that can trigger the lambda function
+2. You will have to add the TOKEN from CodeBuild Bot to your AWS secrets manager (So the API security works)
