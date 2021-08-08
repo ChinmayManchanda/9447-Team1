@@ -1,0 +1,11 @@
+name: Post to a Slack channel
+id: slack
+uses: slackapi/slack-github-action@v1.14.0
+with:
+  channel-id: 'C029UCWE8A2'  # Slack channel id to post message
+  slack-message: |
+    Snyk image-scanning report: https://github.com/TirthParikh27/AddSEC-demo/security/code-scanning,
+    Zap report: https://github.com/TirthParikh27/AddSEC-demo/issues,
+    SonarCloud SAST report: https://sonarcloud.io/dashboard?id=TirthParikh27_AddSEC-demo
+env:
+  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}

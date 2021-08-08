@@ -1,0 +1,42 @@
+name: Run Codeguru scan
+on: 
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [labeled, opened, synchronize]
+jobs:
+  code-security:
+    if: |
+      (github.event.action == 'labeled' && github.event.label.name == 'PR-Deployed') ||
+      (github.event.action != 'labeled' && contains(github.event.pull_request.labels.*.name, 'PR-Deployed')) || 
+      (github.ref == 'refs/heads/main')
+      
+    runs-on: ubuntu-latest
+    steps:
+
+    # Step 1: Checkout the repository and provide your AWS credentials
+    - name: Checkout repository
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-2  # Region to access CodeGuru 
+
+    # Step 2: Add CodeGuru Reviewer Action
+    - name: CodeGuru Reviewer
+      uses: aws-actions/codeguru-reviewer@v1.1
+      with:
+        build_path: .
+        s3_bucket: codeguru-reviewer-pr  # S3 Bucket with "codeguru-reviewer-*" prefix
+
+    # Step 3: Upload results into GitHub
+    - name: Upload review result
+      uses: github/codeql-action/upload-sarif@v1
+      with:
+        sarif_file: codeguru-results.sarif.json
