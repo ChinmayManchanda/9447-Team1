@@ -22,7 +22,6 @@ jobs:
         with:
           channel-id: 'C029UCWE8A2'  # Slack channel id to post message
           slack-message: | 
-             Vulnerabilities: https://github.com/TirthParikh27/AddSEC-demo/security/code-scanning
-             Solution: https:://hello.com
+             Message: "insert here"
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
