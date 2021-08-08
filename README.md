@@ -3,7 +3,7 @@
 COMP9447 Team 1 Repo
 
 # Use Case 1: AddSec
-AddSec's configuration details could be found here: https://github.com/TirthParikh27/AddSec 
+AddSec's configuration details can be found here: https://github.com/TirthParikh27/AddSec 
 
 # Use Case 2: SlackBot
 
@@ -15,7 +15,7 @@ AddSec's configuration details could be found here: https://github.com/TirthPari
 
 # Use Case 3: PR Environment
 
-PR Environment's configuration details could be found here: https://github.com/TirthParikh27/Python_PR
+PR Environment's configuration details can be found here: https://github.com/TirthParikh27/Python_PR
 
 # Use Case 4: NIX Reproducible Builds
 
