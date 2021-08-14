@@ -34,7 +34,8 @@ jobs:
         with:
           # Trivy version
           trivy_version: latest # optional, default is latest
-          # The target image name of vulnerability scan (specify this parameter or "IMAGE_NAME" environment variable
+          # The target image name of vulnerability scan (specify this parameter
+          # or "IMAGE_NAME" environment variable
           image: chinmaymanchanda/python-docker # optional
           # severities of vulnerabilities (separated by commma)
           severity: LOW, MEDIUM, HIGH # optional, default is HIGH,CRITICAL
